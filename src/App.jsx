@@ -98,8 +98,8 @@ function App() {
         serviceId,
         templateId,
         {
-          from_name: formData.get('name'),
-          reply_to: formData.get('email'),
+          name: formData.get('name'),
+          email: formData.get('email'),
           message: formData.get('project'),
         },
         { publicKey },
