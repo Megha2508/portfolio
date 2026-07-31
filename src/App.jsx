@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const roles = [
   {
@@ -86,15 +87,23 @@ function App() {
     setFormStatus('submitting')
     const form = event.currentTarget
     const formData = new FormData(form)
-    formData.append('form-name', 'contact')
 
     try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
-      })
-      if (!response.ok) throw new Error('Submission failed')
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      if (!serviceId || !templateId || !publicKey) throw new Error('Missing EmailJS configuration')
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.get('name'),
+          reply_to: formData.get('email'),
+          message: formData.get('project'),
+        },
+        { publicKey },
+      )
       setFormStatus('success')
       form.reset()
     } catch {
@@ -174,9 +183,7 @@ function App() {
 
       <section className="shortlist-section" id="shortlist">
         <div><p className="eyebrow">Your shortlist</p><h2>{shortlist.length ? 'Let’s discuss the fit.' : 'See a role you need?'}</h2><p>{shortlist.length ? `You shortlisted ${shortlist.length} ${shortlist.length === 1 ? 'role' : 'roles'}. Share a few details and I’ll get back to you.` : 'Pick one or more areas of fit, then start a conversation.'}</p></div>
-        {formStatus === 'success' ? <div className="success-message"><p>Message received.</p><span>Thank you — I’ll be in touch soon.</span></div> : <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={submitContactForm}>
-          <input type="hidden" name="form-name" value="contact" />
-          <p className="honeypot"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
+        {formStatus === 'success' ? <div className="success-message"><p>Message received.</p><span>Thank you — I’ll be in touch soon.</span></div> : <form onSubmit={submitContactForm}>
           <label>Name<input required name="name" placeholder="Your name" /></label>
           <label>Work email<input required type="email" name="email" placeholder="you@company.com" /></label>
           <label>What are you building?<textarea name="project" placeholder="A role, project, or problem to solve" rows="3" /></label>

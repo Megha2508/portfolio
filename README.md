@@ -10,7 +10,7 @@ The site uses a talent-directory visual language rather than a conventional port
 - Filterable areas of fit
 - Selected production projects and technology context
 - A shortlist interaction that leads into a contact form
-- A Netlify Forms-powered contact flow for deployed submissions
+- An EmailJS-powered contact flow for deployed submissions
 - Responsive layouts for desktop and mobile
 
 ## Built with

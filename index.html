@@ -8,13 +8,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <!-- Netlify detects this static form during deployment. The React form mirrors these fields. -->
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-      <input name="bot-field" />
-      <input name="name" />
-      <input name="email" type="email" />
-      <textarea name="project"></textarea>
-    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
