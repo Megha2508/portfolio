@@ -1,24 +1,680 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap");
 
-:root { --ink:#1c292e; --muted:#647276; --paper:#f5f4ef; --lime:#d8fa54; --line:#d4d8d2; --soft:#e9e8e1; --orange:#ea6f3f; }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { margin:0; color:var(--ink); background:var(--paper); font-family:Manrope, Arial, sans-serif; }
-button, input, textarea { font:inherit; }
-button { cursor:pointer; }
-main { overflow:hidden; }
-.site-header { height:78px; display:flex; align-items:center; justify-content:space-between; padding:0 clamp(24px, 7vw, 108px); border-bottom:1px solid var(--line); }
-.wordmark { color:var(--ink); background:none; border:0; font:800 29px/1 'DM Mono', monospace; letter-spacing:-3px; padding:0; }.wordmark span { color:var(--orange); }
-.nav-links { display:flex; gap:28px; margin-left:120px; }.nav-links button, .shortlist-link { border:0; background:transparent; color:var(--ink); font-size:13px; font-weight:600; }
-.nav-links button:hover, .shortlist-link:hover, footer a:hover { text-decoration:underline; text-underline-offset:4px; }
-.header-actions { display:flex; align-items:center; gap:24px; }.shortlist-link span { display:inline-grid; place-items:center; width:22px; height:22px; margin-left:5px; background:var(--lime); border-radius:50%; font:10px 'DM Mono', monospace; }.menu-button { display:none; }
-.hero { padding:clamp(60px, 10vw, 150px) clamp(24px, 7vw, 108px) 55px; min-height:650px; display:flex; flex-direction:column; justify-content:center; background:linear-gradient(135deg, #f5f4ef 72%, #e9ece3); }
-.availability { align-self:flex-end; display:flex; align-items:center; gap:8px; font:11px 'DM Mono', monospace; color:var(--muted); }.status-dot { display:block; width:8px; height:8px; border-radius:50%; background:#91be17; box-shadow:0 0 0 4px rgba(145,190,23,.13); }
-.eyebrow { margin:0 0 18px; color:var(--muted); text-transform:uppercase; font:10px/1.2 'DM Mono', monospace; letter-spacing:.08em; }.hero h1 { max-width:1080px; margin:0; font-size:clamp(45px, 6.7vw, 100px); line-height:1.02; letter-spacing:-.065em; font-weight:700; }.hero h1 em { font-family:'Playfair Display', serif; font-weight:600; letter-spacing:-.06em; }.hero-bottom { display:flex; justify-content:space-between; align-items:end; margin-top:68px; }.hero-bottom p { max-width:430px; margin:0; color:var(--muted); font-size:16px; line-height:1.6; }.circle-action { width:62px; height:62px; border-radius:50%; border:1px solid var(--ink); color:var(--ink); background:transparent; transition:.2s; }.circle-action:hover { background:var(--ink); color:var(--lime); transform:translateY(3px); }
-svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; vertical-align:middle; }
-.roles-section, .work-section { padding:105px clamp(24px, 7vw, 108px); }.roles-section { background:var(--ink); color:#f7f7f2; }.section-heading { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:45px; }.section-heading h2, .about-section h2, .shortlist-section h2 { margin:0; font-size:clamp(34px, 4.3vw, 62px); letter-spacing:-.06em; line-height:1; }.roles-section .eyebrow { color:#a7b2b0; }.section-copy { max-width:345px; margin:0; color:var(--muted); font-size:14px; line-height:1.6; }.roles-section .section-copy { color:#c1c9c5; }.filters { display:flex; flex-wrap:wrap; gap:9px; padding-bottom:28px; border-bottom:1px solid #3a484c; }.filters button { border:1px solid #536165; color:#d8ded9; background:transparent; padding:9px 14px; border-radius:20px; font:11px 'DM Mono', monospace; }.filters button.active, .filters button:hover { background:var(--lime); color:var(--ink); border-color:var(--lime); }.role-list { display:grid; grid-template-columns:repeat(3, 1fr); }.role-card { min-height:405px; display:flex; flex-direction:column; padding:28px 25px 22px; border-bottom:1px solid #3a484c; border-right:1px solid #3a484c; }.role-card:first-child { border-left:1px solid #3a484c; }.role-card-top, .role-card-footer { display:flex; justify-content:space-between; color:#a7b2b0; font:10px 'DM Mono', monospace; text-transform:uppercase; }.role-card h3 { margin:75px 0 13px; font-size:27px; letter-spacing:-.05em; line-height:1.05; }.role-card > p { margin:0; min-height:75px; color:#cbd3cf; font-size:14px; line-height:1.55; }.skill-list { display:flex; flex-wrap:wrap; gap:7px; margin-top:28px; }.skill-list span { padding:6px 8px; background:#2b383b; color:#d2d9d5; border-radius:3px; font:10px 'DM Mono', monospace; }.role-card-footer { margin-top:auto; align-items:center; }.role-card-footer button { display:flex; align-items:center; gap:8px; padding:9px 0; color:var(--lime); border:0; background:transparent; font:500 11px 'DM Mono', monospace; }.role-card-footer button:disabled { color:#9fa9a3; cursor:default; }.role-card-footer button svg { width:15px; }
-.work-section { background:var(--paper); }.project-list { border-top:1px solid var(--line); }.project-row { display:grid; grid-template-columns:70px 1.2fr 1.5fr 1fr; align-items:center; gap:20px; padding:29px 0; border-bottom:1px solid var(--line); }.project-number, .project-label, .project-stack { font:10px 'DM Mono', monospace; color:var(--muted); }.project-label { margin:0 0 7px; text-transform:uppercase; }.project-row h3 { margin:0; font-size:22px; letter-spacing:-.04em; }.project-description, .project-stack { margin:0; font-size:13px; line-height:1.55; }.project-stack { line-height:1.6; }
-.about-section { padding:125px clamp(24px, 12vw, 184px); background:var(--lime); }.about-section h2 { max-width:880px; font-size:clamp(37px, 5.1vw, 76px); }.about-grid { display:grid; grid-template-columns:1.2fr 1fr; align-items:end; gap:80px; margin-top:70px; }.about-grid p { max-width:500px; margin:0; font-size:17px; line-height:1.65; }.about-grid a { justify-self:end; display:flex; align-items:center; gap:12px; color:var(--ink); font-size:15px; font-weight:700; text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:8px; }
-.shortlist-section { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:105px clamp(24px, 12vw, 184px); background:var(--orange); color:#1e292b; }.shortlist-section .eyebrow { color:#5a3226; }.shortlist-section > div > p:last-child { max-width:405px; margin:26px 0 0; line-height:1.6; font-size:15px; }.shortlist-section form { display:grid; gap:16px; }.shortlist-section label { display:grid; gap:7px; font:10px 'DM Mono', monospace; text-transform:uppercase; letter-spacing:.04em; }.shortlist-section input, .shortlist-section textarea { width:100%; color:var(--ink); border:0; border-bottom:1px solid rgba(28,41,46,.6); outline:0; padding:10px 0; resize:vertical; background:transparent; font:14px Manrope, sans-serif; }.shortlist-section input::placeholder, .shortlist-section textarea::placeholder { color:#804431; }.shortlist-section form button { display:flex; justify-content:space-between; align-items:center; margin-top:15px; border:1px solid var(--ink); background:var(--ink); color:#fff; padding:15px 17px; font:600 13px Manrope, sans-serif; transition:.2s; }.shortlist-section form button:hover { background:transparent; color:var(--ink); }.shortlist-section form button:disabled { cursor:wait; opacity:.75; }.form-error { margin:0; color:#712f20; font-size:12px; line-height:1.4; }.success-message { align-self:center; border-top:1px solid rgba(28,41,46,.5); border-bottom:1px solid rgba(28,41,46,.5); padding:28px 0; }.success-message p { margin:0 0 8px; font-size:23px; font-weight:700; }.success-message span { font-size:14px; } footer { display:flex; justify-content:space-between; padding:28px clamp(24px, 7vw, 108px); background:var(--ink); color:#b7c0bd; font:10px 'DM Mono', monospace; text-transform:uppercase; } footer div { display:flex; gap:25px; } footer a { color:#e9eee9; text-decoration:none; }
-@media (max-width:760px) { .site-header { height:65px; }.nav-links { display:none; }.nav-links.open { display:flex; position:absolute; z-index:4; top:65px; right:16px; left:16px; flex-direction:column; gap:20px; padding:22px; background:var(--ink); }.nav-links.open button { color:#f5f4ef; text-align:left; }.menu-button { display:block; border:0; background:transparent; color:var(--ink); font:11px 'DM Mono', monospace; text-transform:uppercase; }.shortlist-link { font-size:0; }.shortlist-link span { margin:0; font-size:10px; }.header-actions { gap:15px; }.hero { min-height:580px; }.availability { align-self:flex-start; margin-bottom:45px; }.hero-bottom { margin-top:48px; }.circle-action { width:50px; height:50px; flex:none; margin-left:20px; }.section-heading, .about-grid, .shortlist-section { display:block; }.section-copy { margin-top:22px; }.roles-section, .work-section { padding-top:75px; padding-bottom:75px; }.role-list { grid-template-columns:1fr; }.role-card { min-height:330px; border-left:1px solid #3a484c; }.role-card h3 { margin-top:45px; }.project-row { grid-template-columns:38px 1fr; gap:12px; }.project-description, .project-stack { grid-column:2; }.about-section { padding-top:85px; padding-bottom:85px; }.about-grid p { margin-top:42px; }.about-grid a { justify-self:start; margin-top:30px; }.shortlist-section { padding-top:78px; padding-bottom:78px; }.shortlist-section form, .success-message { margin-top:50px; } footer { flex-direction:column; gap:18px; } }
-@media (max-width:480px) { .site-header { padding:0 20px; }.wordmark { font-size:26px; }.hero { min-height:0; padding:46px 20px 42px; }.availability { margin-bottom:38px; font-size:10px; }.hero h1 { font-size:clamp(42px, 12vw, 52px); line-height:1.04; letter-spacing:-.07em; }.hero-bottom { align-items:flex-end; margin-top:40px; }.hero-bottom p { font-size:14px; line-height:1.55; }.circle-action { width:46px; height:46px; }.roles-section, .work-section { padding:64px 20px; }.section-heading { margin-bottom:32px; }.section-heading h2, .about-section h2, .shortlist-section h2 { font-size:40px; }.section-copy { font-size:13px; }.filters { gap:7px; padding-bottom:22px; }.filters button { padding:8px 11px; font-size:10px; }.role-card { min-height:305px; padding:23px 20px 18px; }.role-card h3 { margin-top:37px; font-size:25px; }.role-card > p { min-height:0; font-size:13px; }.skill-list { margin-top:23px; }.project-row { padding:24px 0; }.project-row h3 { font-size:20px; }.project-description { font-size:13px; }.about-section { padding:72px 20px; }.about-grid { margin-top:40px; }.about-grid p { font-size:15px; }.about-grid a { max-width:100%; font-size:13px; overflow-wrap:anywhere; }.shortlist-section { padding:72px 20px; }.shortlist-section > div > p:last-child { font-size:14px; }.shortlist-section form, .success-message { margin-top:42px; }.shortlist-section input, .shortlist-section textarea { font-size:16px; }.shortlist-section form button { min-height:52px; }.success-message p { font-size:21px; } footer { padding:24px 20px; } footer div { gap:18px; } }
+:root {
+  --ink: #1c292e;
+  --muted: #647276;
+  --paper: #f5f4ef;
+  --lime: #d8fa54;
+  --line: #d4d8d2;
+  --soft: #e9e8e1;
+  --orange: #ea6f3f;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Manrope, Arial, sans-serif;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+main {
+  overflow: hidden;
+}
+.site-header {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(24px, 7vw, 108px);
+  border-bottom: 1px solid var(--line);
+}
+.wordmark {
+  color: var(--ink);
+  background: none;
+  border: 0;
+  font: 800 29px/1 "DM Mono", monospace;
+  letter-spacing: -3px;
+  padding: 0;
+}
+.wordmark span {
+  color: var(--orange);
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  margin-left: 120px;
+}
+.nav-links button,
+.shortlist-link {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+.nav-links button:hover,
+.shortlist-link:hover,
+footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.shortlist-link{
+    padding: 10px 20px;
+    background-color: #d8fa54;
+    border-radius: 20px;
+}
+.shortlist-link span {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-left: 5px;
+  background: var(--lime);
+  border-radius: 50%;
+  font: 10px "DM Mono", monospace;
+}
+.menu-button {
+  display: none;
+}
+.hero {
+  padding: clamp(20px, 10vw, 0px) clamp(24px, 7vw, 108px) 55px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f4ef 72%, #e9ece3);
+}
+.availability {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 13px "DM Mono", monospace;
+  color: var(--muted);
+  font-weight: bold;
+}
+.status-dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #91be17;
+  box-shadow: 0 0 0 4px rgba(145, 190, 23, 0.13);
+}
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--muted);
+  text-transform: uppercase;
+  font: 10px/1.2 "DM Mono", monospace;
+  letter-spacing: 0.08em;
+}
+.hero h1 {
+  max-width: 1080px;
+  margin: 0;
+  font-size: clamp(45px, 6.7vw, 100px);
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+  font-weight: 700;
+}
+.hero h1 em {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+.hero-bottom {
+  margin-top: 68px;
+}
+.hero-bottom p {
+  max-width: 800px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.roles-section,
+.work-section {
+  padding: 70px clamp(24px, 7vw, 108px);
+}
+.roles-section {
+  background: var(--ink);
+  color: #f7f7f2;
+}
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+.section-heading h2,
+.about-section h2,
+.shortlist-section h2 {
+  margin: 0;
+  font-size: clamp(34px, 4.3vw, 62px);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+.roles-section .eyebrow {
+  color: #a7b2b0;
+}
+.section-copy {
+  max-width: 345px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.roles-section .section-copy {
+  color: #c1c9c5;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #3a484c;
+}
+.filters button {
+  border: 1px solid #536165;
+  color: #d8ded9;
+  background: transparent;
+  padding: 9px 14px;
+  border-radius: 20px;
+  font: 11px "DM Mono", monospace;
+}
+.filters button.active,
+.filters button:hover {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+.role-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.role-card {
+  min-height: 405px;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 25px 22px;
+  border-bottom: 1px solid #3a484c;
+  border-right: 1px solid #3a484c;
+}
+.role-card:first-child {
+  border-left: 1px solid #3a484c;
+}
+.role-card-top,
+.role-card-footer {
+  display: flex;
+  justify-content: space-between;
+  color: #a7b2b0;
+  font: 10px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+.role-card h3 {
+  margin: 75px 0 13px;
+  font-size: 27px;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+.role-card > p {
+  margin: 0;
+  min-height: 75px;
+  color: #cbd3cf;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 28px;
+}
+.skill-list span {
+  padding: 6px 8px;
+  background: #2b383b;
+  color: #d2d9d5;
+  border-radius: 3px;
+  font: 10px "DM Mono", monospace;
+}
+.role-card-footer {
+  margin-top: auto;
+  align-items: center;
+}
+.role-card-footer button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 0;
+  color: var(--lime);
+  border: 0;
+  background: transparent;
+  font: 500 11px "DM Mono", monospace;
+}
+.role-card-footer button:disabled {
+  color: #9fa9a3;
+  cursor: default;
+}
+.role-card-footer button svg {
+  width: 15px;
+}
+.work-section {
+  background: var(--paper);
+}
+.project-list {
+  border-top: 1px solid var(--line);
+}
+.project-row {
+  display: grid;
+  grid-template-columns: 70px 1.2fr 1.5fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 29px 0;
+  border-bottom: 1px solid var(--line);
+}
+.project-number,
+.project-label,
+.project-stack {
+  font: 10px "DM Mono", monospace;
+  color: var(--muted);
+}
+.project-label {
+  margin: 0 0 7px;
+  text-transform: uppercase;
+}
+.project-row h3 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+.project-description,
+.project-stack {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.project-stack {
+  line-height: 1.6;
+}
+.about-section {
+  padding: 125px clamp(24px, 12vw, 184px);
+  background: var(--lime);
+}
+.about-section h2 {
+  max-width: 880px;
+  font-size: clamp(37px, 5.1vw, 76px);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: end;
+  gap: 80px;
+  margin-top: 70px;
+}
+.about-grid p {
+  max-width: 500px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.about-grid a {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 8px;
+}
+.shortlist-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 105px clamp(24px, 12vw, 184px);
+  background: var(--orange);
+  color: #1e292b;
+}
+.shortlist-section .eyebrow {
+  color: #5a3226;
+}
+.shortlist-section > div > p:last-child {
+  max-width: 405px;
+  margin: 26px 0 0;
+  line-height: 1.6;
+  font-size: 15px;
+}
+.shortlist-section form {
+  display: grid;
+  gap: 16px;
+}
+.shortlist-section label {
+  display: grid;
+  gap: 7px;
+  font: 10px "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.shortlist-section input,
+.shortlist-section textarea {
+  width: 100%;
+  color: var(--ink);
+  border: 0;
+  border-bottom: 1px solid rgba(28, 41, 46, 0.6);
+  outline: 0;
+  padding: 10px 0;
+  resize: vertical;
+  background: transparent;
+  font: 14px Manrope, sans-serif;
+}
+.shortlist-section input::placeholder,
+.shortlist-section textarea::placeholder {
+  color: #804431;
+}
+.shortlist-section form button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  padding: 15px 17px;
+  font: 600 13px Manrope, sans-serif;
+  transition: 0.2s;
+}
+.shortlist-section form button:hover {
+  background: transparent;
+  color: var(--ink);
+}
+.shortlist-section form button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+.form-error {
+  margin: 0;
+  color: #712f20;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.success-message {
+  align-self: center;
+  border-top: 1px solid rgba(28, 41, 46, 0.5);
+  border-bottom: 1px solid rgba(28, 41, 46, 0.5);
+  padding: 28px 0;
+}
+.success-message p {
+  margin: 0 0 8px;
+  font-size: 23px;
+  font-weight: 700;
+}
+.success-message span {
+  font-size: 14px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 28px clamp(24px, 7vw, 108px);
+  background: var(--ink);
+  color: #b7c0bd;
+  font: 10px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+footer div {
+  display: flex;
+  gap: 25px;
+}
+footer a {
+  color: #e9eee9;
+  text-decoration: none;
+}
+@media (max-width: 760px) {
+  .site-header {
+    height: 65px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    z-index: 4;
+    top: 65px;
+    right: 16px;
+    left: 16px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 22px;
+    background: var(--ink);
+  }
+  .nav-links.open button {
+    color: #f5f4ef;
+    text-align: left;
+  }
+  .menu-button {
+    display: block;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font: 11px "DM Mono", monospace;
+    text-transform: uppercase;
+  }
+  .shortlist-link {
+    font-size: 0;
+  }
+  .shortlist-link span {
+    margin: 0;
+    font-size: 10px;
+  }
+  .header-actions {
+    gap: 15px;
+  }
+  .hero {
+    min-height: 580px;
+  }
+  .availability {
+    align-self: flex-start;
+    margin-bottom: 45px;
+  }
+  .hero-bottom {
+    margin-top: 48px;
+  }
+  .circle-action {
+    width: 50px;
+    height: 50px;
+    flex: none;
+    margin-left: 20px;
+  }
+  .section-heading,
+  .about-grid,
+  .shortlist-section {
+    display: block;
+  }
+  .section-copy {
+    margin-top: 22px;
+  }
+  .roles-section,
+  .work-section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+  .role-list {
+    grid-template-columns: 1fr;
+  }
+  .role-card {
+    min-height: 330px;
+    border-left: 1px solid #3a484c;
+  }
+  .role-card h3 {
+    margin-top: 45px;
+  }
+  .project-row {
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+  }
+  .project-description,
+  .project-stack {
+    grid-column: 2;
+  }
+  .about-section {
+    padding-top: 85px;
+    padding-bottom: 85px;
+  }
+  .about-grid p {
+    margin-top: 42px;
+  }
+  .about-grid a {
+    justify-self: start;
+    margin-top: 30px;
+  }
+  .shortlist-section {
+    padding-top: 78px;
+    padding-bottom: 78px;
+  }
+  .shortlist-section form,
+  .success-message {
+    margin-top: 50px;
+  }
+  footer {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0 20px;
+  }
+  .wordmark {
+    font-size: 26px;
+  }
+  .hero {
+    min-height: 0;
+    padding: 46px 20px 42px;
+  }
+  .availability {
+    margin-bottom: 38px;
+    font-size: 10px;
+  }
+  .hero h1 {
+    font-size: clamp(42px, 12vw, 52px);
+    line-height: 1.04;
+    letter-spacing: -0.07em;
+  }
+  .hero-bottom {
+    margin-top: 40px;
+  }
+  .hero-bottom p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .circle-action {
+    width: 46px;
+    height: 46px;
+  }
+  .roles-section,
+  .work-section {
+    padding: 64px 20px;
+  }
+  .section-heading {
+    margin-bottom: 32px;
+  }
+  .section-heading h2,
+  .about-section h2,
+  .shortlist-section h2 {
+    font-size: 40px;
+  }
+  .section-copy {
+    font-size: 13px;
+  }
+  .filters {
+    gap: 7px;
+    padding-bottom: 22px;
+  }
+  .filters button {
+    padding: 8px 11px;
+    font-size: 10px;
+  }
+  .role-card {
+    min-height: 305px;
+    padding: 23px 20px 18px;
+  }
+  .role-card h3 {
+    margin-top: 37px;
+    font-size: 25px;
+  }
+  .role-card > p {
+    min-height: 0;
+    font-size: 13px;
+  }
+  .skill-list {
+    margin-top: 23px;
+  }
+  .project-row {
+    padding: 24px 0;
+  }
+  .project-row h3 {
+    font-size: 20px;
+  }
+  .project-description {
+    font-size: 13px;
+  }
+  .about-section {
+    padding: 72px 20px;
+  }
+  .about-grid {
+    margin-top: 40px;
+  }
+  .about-grid p {
+    font-size: 15px;
+  }
+  .about-grid a {
+    max-width: 100%;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .shortlist-section {
+    padding: 72px 20px;
+  }
+  .shortlist-section > div > p:last-child {
+    font-size: 14px;
+  }
+  .shortlist-section form,
+  .success-message {
+    margin-top: 42px;
+  }
+  .shortlist-section input,
+  .shortlist-section textarea {
+    font-size: 16px;
+  }
+  .shortlist-section form button {
+    min-height: 52px;
+  }
+  .success-message p {
+    font-size: 21px;
+  }
+  footer {
+    padding: 24px 20px;
+  }
+  footer div {
+    gap: 18px;
+  }
+}

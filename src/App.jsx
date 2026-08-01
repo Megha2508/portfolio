@@ -9,7 +9,7 @@ const roles = [
     type: 'Web applications',
     summary: 'I build clear, scalable React interfaces for products people use every day.',
     skills: ['React', 'TypeScript', 'Redux', 'REST APIs'],
-    projects: ['Ahhaa mental wellness platform', 'Barmer Chemists Association'],
+    projects: ['Ahhaa mental wellness platform', 'Barmer Chemists Association', 'DropTonight'],
     tags: ['Web', 'React', 'Full-time', 'Contract'],
   },
   {
@@ -19,8 +19,8 @@ const roles = [
     type: 'Mobile applications',
     summary: 'I take cross-platform apps from a reliable UI to a store-ready release.',
     skills: ['Flutter', 'Firebase', 'iOS', 'Android'],
-    projects: ['Production mobile app at Ahhaa'],
-    tags: ['Mobile', 'Flutter', 'Contract'],
+    projects: ['Production mobile app at Ahhaa',],
+    tags: ['Mobile', 'Flutter', 'Full-time'],
   },
   {
     id: 'delivery',
@@ -29,8 +29,8 @@ const roles = [
     type: 'Launch & maintain',
     summary: 'I connect product UI to the practical work of performance, deployment, and ongoing support.',
     skills: ['GCP', 'CI/CD', 'Cloud Run', 'Performance'],
-    projects: ['GCP production deployments', 'Client marketing websites'],
-    tags: ['Web', 'GCP', 'Full-time', 'Contract'],
+    projects: ['Ahhaa mental wellness platform', 'Barmer Chemists Association', 'DropTonight'],
+    tags: ['GCP', 'Full-time', 'Contract'],
   },
 ]
 
@@ -122,19 +122,19 @@ function App() {
         </nav>
         <div className="header-actions">
           <button className="shortlist-link" onClick={() => scrollTo('shortlist')}>
-            Shortlist <span>{shortlist.length.toString().padStart(2, '0')}</span>
+            Hire Me!
           </button>
           <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle menu">Menu</button>
         </div>
       </header>
 
       <section className="hero" id="top">
-        <div className="availability"><span className="status-dot" /> Available for selected opportunities</div>
+        <div className="availability"><span className="status-dot" /> Available for new opportunities</div>
         <p className="eyebrow">Candidate profile / 2026</p>
         <h1>Your next frontend hire,<br /><em>already production-tested.</em></h1>
         <div className="hero-bottom">
-          <p>Frontend engineer with 5 years of experience building dependable web and mobile products—from interface to release.</p>
-          <button className="circle-action" onClick={() => scrollTo('roles')} aria-label="Explore roles"><ArrowIcon /></button>
+          <p>Frontend engineer with 5 years of experience building dependable web and mobile products—from interface to release. I bring thoughtful UI, solid technical execution, and a practical approach to shipping work with product teams.</p>
+          {/* <button className="circle-action" onClick={() => scrollTo('roles')} aria-label="Explore roles"><ArrowIcon /></button> */}
         </div>
       </section>
 
@@ -156,7 +156,7 @@ function App() {
               <div className="skill-list">{role.skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
               <div className="role-card-footer">
                 <span>{role.projects.length} relevant {role.projects.length === 1 ? 'project' : 'projects'}</span>
-                <button onClick={() => addToShortlist(role)} disabled={isAdded}>{isAdded ? 'Shortlisted' : 'Shortlist'} <ArrowIcon /></button>
+                {/* <button onClick={() => addToShortlist(role)} disabled={isAdded}>{isAdded ? 'Shortlisted' : 'Shortlist'} <ArrowIcon /></button> */}
               </div>
             </article>
           })}
@@ -182,8 +182,8 @@ function App() {
       </section>
 
       <section className="shortlist-section" id="shortlist">
-        <div><p className="eyebrow">Your shortlist</p><h2>{shortlist.length ? 'Let’s discuss the fit.' : 'See a role you need?'}</h2><p>{shortlist.length ? `You shortlisted ${shortlist.length} ${shortlist.length === 1 ? 'role' : 'roles'}. Share a few details and I’ll get back to you.` : 'Pick one or more areas of fit, then start a conversation.'}</p></div>
-        {formStatus === 'success' ? <div className="success-message"><p>Message received.</p><span>Thank you — I’ll be in touch soon.</span></div> : <form onSubmit={submitContactForm}>
+        <div><h2>See a role you need?</h2><p>Share a few details and I'll get back to you.</p></div>
+        {formStatus === 'success' ? <div className="success-message"><p>Message received.</p><span>Thank you — I'll be in touch soon.</span></div> : <form onSubmit={submitContactForm}>
           <label>Name<input required name="name" placeholder="Your name" /></label>
           <label>Work email<input required type="email" name="email" placeholder="you@company.com" /></label>
           <label>What are you building?<textarea name="project" placeholder="A role, project, or problem to solve" rows="3" /></label>
@@ -192,7 +192,7 @@ function App() {
         </form>}
       </section>
 
-      <footer><span>© {new Date().getFullYear()} Meghna Jain</span><div><a href="https://linkedin.com/in/meghna-2507" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/Megha2508" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+      <footer><span>© 2026 Meghna Jain</span><div><a href="https://linkedin.com/in/meghna-2507" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/Megha2508" target="_blank" rel="noreferrer">GitHub</a></div></footer>
     </main>
   )
 }
